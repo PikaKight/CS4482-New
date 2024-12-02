@@ -104,12 +104,17 @@ public class GameManager : MonoBehaviour
     public static void resumeGame()
     {
         GameManager.isPaused = false;
+
+        if (LevelManager.isDead)
+        {
+            LevelManager.isRespawn = true;
+            LevelManager.isDead = false;
+        }
     }
 
     public static void restartGame()
     {
-        Time.timeScale = 1.0f;
-
+        Time.timeScale *= 1.0f;
         timer.time = 0.0f;
 
         GameManager.isPaused = false;

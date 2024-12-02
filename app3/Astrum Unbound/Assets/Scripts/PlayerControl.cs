@@ -18,6 +18,7 @@ public class PlayerControl : MonoBehaviour
     public float timeInvincible;
     public int lives = 3;
     
+    
     public int maxMana = 100;
     public int spellCost = 5;
     public bool spell = false;
@@ -59,7 +60,7 @@ public class PlayerControl : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         changeHealth(maxHealth);
-        changeMana(0);
+        changeMana(maxMana);
 
         orgX = gameObject.transform.localPosition.x;
         orgY = gameObject.transform.localPosition.y;
@@ -97,15 +98,13 @@ public class PlayerControl : MonoBehaviour
             Debug.Log("Pressed: " + GameManager.isPaused);
         }
 
-        if (shootAction.WasPressedThisFrame() && fireTimer <= 0)
+        if (shootAction.WasPressedThisFrame() && fireTimer <= 0 && !spell)
         {
             GameObject bullet1 = Instantiate(bullet, firingPoint.position, firingPoint.rotation);
 
             Ranged b1Data = bullet1.GetComponent<Ranged>();
 
             b1Data.damage = rangedDamage;
-
-            b1Data.shooter = gameObject.name;
 
             fireTimer = fireRate;
         }
@@ -118,7 +117,6 @@ public class PlayerControl : MonoBehaviour
 
             b1Data.damage = rangedDamage;
 
-            b1Data.shooter = gameObject.name;
 
             fireTimer = fireRate;
 
@@ -130,6 +128,7 @@ public class PlayerControl : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            LevelManager.isDead = true;
             lives -= 1;
             
             Vector2 position = transform.position;
@@ -140,7 +139,7 @@ public class PlayerControl : MonoBehaviour
 
             currentHealth = maxHealth;
 
-            healthStatus.text = currentHealth.ToString() + " HP";
+            healthStatus.text = $"Health: {currentHealth} HP";
 
         }
     }
@@ -195,5 +194,15 @@ public class PlayerControl : MonoBehaviour
 
         currentMana = Mathf.Clamp(currentMana + manaGain, 0, maxMana);
         manaStatus.text = $"Mana: {currentMana} MP";
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Gem")
+        {
+            LevelManager.isKey = true;
+
+            other.gameObject.SetActive(false);
+        }
     }
 }

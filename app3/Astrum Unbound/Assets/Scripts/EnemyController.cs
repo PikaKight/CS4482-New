@@ -16,13 +16,18 @@ public class EnemyController : MonoBehaviour
     public float stopDistance = 0.5f; // Distance to stop when near player    
     float distance;
 
+
     public bool range;
     public GameObject bullet;
+    public float fireRange = 10f;
     public float firingRate = 0.5f;
     float firingTimer;
 
     public int maxHealth;
     float currentHealth;
+
+    public float health { get { return currentHealth; } }
+
 
     Rigidbody2D rb;
     GameObject player;
@@ -45,8 +50,10 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        if (currentHealth <= 0) { 
-            gameObject.SetActive(false);
+        if (currentHealth <= 0) {
+            LevelManager.enemies.Remove(gameObject);
+            Destroy(gameObject);
+
         }
         else
         {
@@ -82,6 +89,15 @@ public class EnemyController : MonoBehaviour
             rb.velocity = direction * speed;
         }
         
+        else if (distance <= fireRange && distance > detectionRange)
+        {
+            GameObject bullet1 = Instantiate(bullet, gameObject.transform.position, gameObject.transform.rotation);
+
+            Ranged b1Data = bullet1.GetComponent<Ranged>();
+
+            b1Data.damage = damage;
+        }
+
         else
         {
             enemyAnimation.SetTrigger("Idle");

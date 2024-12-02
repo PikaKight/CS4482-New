@@ -6,7 +6,7 @@ The Game will be a top-down game with the at least 3 levels. The game's focus is
 
 - [ ] Player
 
-  - [ ] Has 3 lives
+  - [x] Has 3 lives
 
     - [ ] Game Over after losing all lives
 
@@ -15,14 +15,11 @@ The Game will be a top-down game with the at least 3 levels. The game's focus is
     - [x] 2+ Different Characters (just sprite difference)
     - [x] Character Selection Menu
 
-  - [ ] Animation
+  - [x] Animation
 
     - [x] Idle
     - [x] Walking
     - [x] Melee
-    - [ ] Range
-    - [ ] Damage
-    - [ ] Death
 
   - [x] Player respawn at the beginning of the level
 
@@ -31,26 +28,49 @@ The Game will be a top-down game with the at least 3 levels. The game's focus is
     - [x] Doesn't pass through wall, floor, obstacle
     - [x] Losses health and gets knocked back when touching an enemy
 
+- [x] Item
+
+  These items will help the user to complete the level
+
+  - [x] HP
+  - [x] MP
+
+- [ ] Player Class
+
+  Upgrading the character select to have different classes
+
+  - [x] Warrior
+
+    - [x] Sword
+    - [x] Arrow/Bullet
+    - [x] Deal more close range damage
+    - [x] Deal less long range damage
+
+  - [x] Mage
+
+    - [x] Staff
+    - [x] Spells
+    - [x] Deal less close range damage
+    - [x] Deal more long range damage
+
 - [x] Top-Down Game
 
   - [x] Game Camera should follow the player
 
 - [ ] Levels
 
-  - [ ] 3+ Levels
-  - [ ] Must have start and end points
-  - [ ] Next Level unlocks after all enemies are killed
-  - [ ] 1~2 puzzle per level
-  - [ ] At least 2 environmental hazard that injures
+  - [ ] 2+ Levels
+  - [x] Must have start and end points
+  - [x] Next Level unlocks after all enemies are killed
+  - [ ] At least 1 environmental hazard that injures
 
 - [ ] UI
 
   - [x] Health Bar
   - [x] Life
   - [x] Time
-  - [ ] Number of Enemies
-  - [ ] Skills/Item
-  - [ ] Initial Instruction
+  - [x] Number of Enemies
+  - [x] Initial Instruction
 
     - Probably some kind of dialog buble
 
@@ -70,18 +90,18 @@ The Game will be a top-down game with the at least 3 levels. The game's focus is
 
 - [x] Restart gracefully
 
-- [ ] Combat
+- [x] Combat
 
   - [x] Melee
-  - [ ] Range
+  - [x] Range
 
-- [ ] Enemy
+- [x] Enemy
 
-  - [ ] 3 Type of Enemies
+  - [x] 2 Type of Enemies
 
-    - [ ] Different Attacks
-    - [ ] Different Health
-    - [ ] Different Damage
+    - [x] Different Attacks
+    - [x] Different Health
+    - [x] Different Damage
 
   - [x] Should go after player when they are close
 
@@ -100,59 +120,19 @@ The Game will be a top-down game with the at least 3 levels. The game's focus is
     - [ ] Main Menu
     - [ ] Quit
 
-- [ ] Death Screen
+- [x] Death Screen
 
-  - [ ] You Died Screen
+  - [x] You Died Screen
 
-  - [ ] Respawn
+  - [x] Respawn
 
-    - [ ] Respawn Player to start of level
+    - [x] Respawn Player to start of level
 
-    - [ ] Player lose 1 life
+    - [x] Player lose 1 life
 
-  - [ ] Return to Main Menu
+  - [x] Return to Main Menu
 
-  - [ ] Quit
+- [x] Score
 
-- [ ] Score
-
-  - [ ] Score based on Time
-  - [ ] Save score to leaderboard
-
-## Possible Additions
-
-- [ ] Mana and Spell
-
-  - [ ] 2+ different spell instead of normal range attack
-
-  - [ ] Player can switch spells
-
-- [ ] Inventory
-
-  - [ ] Player inventory
-  - [ ] Equip items
-
-- [x] Item
-
-  These items will help the user to complete the level
-
-  - [x] HP
-  - [x] MP
-
-- [ ] Player Class
-
-  Upgrading the character select to have different classes
-
-  - [x] Warrior
-
-    - [x] Sword
-    - [ ] Arrow/Bullet
-    - [x] Deal more close range damage
-    - [ ] Deal less long range damage
-
-  - [x] Mage
-
-    - [x] Staff
-    - [ ] Spells
-    - [x] Deal less close range damage
-    - [ ] Deal more long range damage
+  - [x] Score based on Time
+  - [x] Save score to leaderboard

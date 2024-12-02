@@ -27,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3268031581041751745}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0.07999899, y: 0.71999997, z: 0}
   m_LocalScale: {x: 2.1375997, y: 2.1375997, z: 2.1375997}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6962080740052379965}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &6841954452991672882
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -160,7 +160,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: d9eb6479-9d8f-4ccb-9d91-268e923b0fb8
-      m_Path: <Keyboard>/x
+      m_Path: <Keyboard>/ctrl
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -472,11 +472,19 @@ MonoBehaviour:
     m_Id: b89db35c-8cd2-4636-80bd-5fb8d5f00c27
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings: []
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 8f4f7abd-d302-455c-a9f6-76c4272c4804
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Shoot
+      m_Flags: 0
     m_Flags: 0
-  firingPoint: {fileID: 0}
+  firingPoint: {fileID: 3479655795784475921}
   fireRate: 0.5
-  bullet: {fileID: 0}
+  bullet: {fileID: 2538929406024377485, guid: 2a0b691ae391daf468e1b9fabcd74e22, type: 3}
   rangedDamage: 3
   playerAnimation: {fileID: 9221285575404910684}
   healthStatus: {fileID: 0}

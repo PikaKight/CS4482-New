@@ -7,7 +7,7 @@ public class Ranged : Collidable
     public int damage;
     public float speed = 10f;
     public float lifeTime = 3f;
-    public float angle;
+
     public string shooter;
 
     private Rigidbody2D rb;
@@ -23,37 +23,37 @@ public class Ranged : Collidable
 
     void FixedUpdate()
     {
-        rb.rotation = angle;
 
         rb.velocity = transform.up * speed;
     }
 
     protected override void OnCollide(Collider2D coll)
     {
-        switch (coll.tag)
-        {
-            case "Player":
-                EnemyController enemyController = coll.GetComponent<EnemyController>();
+        if (coll.tag != shooter)
+            switch (coll.tag)
+            {
+                case "Enemy":
+                    EnemyController enemyController = coll.GetComponent<EnemyController>();
 
-                if (enemyController != null)
-                {
-                    enemyController.changeHealth(damage * -1);
-                    Destroy(gameObject);
-                }
-                break;
+                    if (enemyController != null)
+                    {
+                        enemyController.changeHealth(damage * -1);
+                        Destroy(gameObject);
+                    }
+                    break;
 
-            case "Enemy":
-                PlayerControl playerControl = coll.GetComponent<PlayerControl>();
-                if (playerControl != null)
-                {
-                    playerControl.changeHealth(damage * -1);
-                    Destroy(gameObject);
-                }
-                break;
+                case "Player":
+                    PlayerControl playerControl = coll.GetComponent<PlayerControl>();
+                    if (playerControl != null)
+                    {
+                        playerControl.changeHealth(damage * -1);
+                        Destroy(gameObject);
+                    }
+                    break;
 
-            default:
-                return;
-        }
+                default:
+                    return;
+            }
 
     }
 }
