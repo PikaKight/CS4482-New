@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 0.0f;
 
             }
-            else if (!GameEnd.isOver)
+            else if (GameEnd.isOver)
             {
                 menu.SetActive(false);
                 Time.timeScale = 1.0f;

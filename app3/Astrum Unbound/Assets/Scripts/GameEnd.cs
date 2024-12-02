@@ -23,7 +23,7 @@ public class GameEnd : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(isOver);
+        
     }
 
     void OnCollisionEnter2D(Collision2D other)
