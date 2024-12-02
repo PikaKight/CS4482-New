@@ -30,6 +30,7 @@ public class Ranged : Collidable
     protected override void OnCollide(Collider2D coll)
     {
         if (coll.tag != shooter)
+        {
             switch (coll.tag)
             {
                 case "Enemy":
@@ -54,6 +55,6 @@ public class Ranged : Collidable
                 default:
                     return;
             }
-
+        }
     }
 }

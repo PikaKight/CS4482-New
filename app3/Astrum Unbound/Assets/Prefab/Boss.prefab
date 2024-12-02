@@ -171,10 +171,11 @@ MonoBehaviour:
   enemyAnimation: {fileID: 2302274774601727823}
   detectionRange: 7
   stopDistance: 0.5
-  range: 0
-  bullet: {fileID: 0}
+  range: 1
+  bullet: {fileID: 2538929406024377485, guid: 2a0b691ae391daf468e1b9fabcd74e22, type: 3}
+  fireRange: 10
   firingRate: 0.5
-  maxHealth: 0
+  maxHealth: 20
 --- !u!95 &2302274774601727823
 Animator:
   serializedVersion: 5

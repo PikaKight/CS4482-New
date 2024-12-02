@@ -41,7 +41,7 @@ public class LevelManager : MonoBehaviour
     PlayerControl playerControl;
 
 
-    public bool isStart = true;
+    public static bool isStart = true;
     public static bool isRespawn = false;
     public static bool isDead = false;
     public static bool isDone = false;
@@ -52,6 +52,8 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 0.0f;
+
         if (CharacterSelection.currentPlayer != null)
         {
             defaultPlayer = CharacterSelection.currentPlayer;
@@ -69,12 +71,6 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (isStart)
-        {
-            Time.timeScale = 0.0f;
-        }
-
 
         if (playerControl.lives < playerLives)
         {
@@ -153,6 +149,7 @@ public class LevelManager : MonoBehaviour
 
     public void hideInstructions()
     {
+        Debug.Log("Start Game");
         instructions.SetActive(false);
         isStart = false;
         Time.timeScale = 1.0f;

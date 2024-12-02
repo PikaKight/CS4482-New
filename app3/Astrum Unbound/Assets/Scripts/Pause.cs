@@ -19,7 +19,7 @@ public class Pause : MonoBehaviour
             Time.timeScale = 0.0f;
 
         }
-        else if (!GameEnd.isOver)
+        else if (!GameEnd.isOver || LevelManager.isStart)
         {
             menu.SetActive(false);
             Time.timeScale = 1.0f;

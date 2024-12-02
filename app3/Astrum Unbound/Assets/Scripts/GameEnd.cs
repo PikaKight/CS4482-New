@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
-using static System.Net.Mime.MediaTypeNames;
-using UnityEngine.SocialPlatforms;
+
 
 public class GameEnd : MonoBehaviour
 {
@@ -35,7 +34,7 @@ public class GameEnd : MonoBehaviour
 
         if (player != null) {
             isOver = true;
-            Time.timeScale = 0;
+            Time.timeScale = 0.0f;
             score.SetActive(true);
 
             text.text = "Final Time: " + timer.time.ToString();

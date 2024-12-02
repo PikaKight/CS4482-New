@@ -95,7 +95,6 @@ public class PlayerControl : MonoBehaviour
         if (pauseAction.WasPressedThisFrame())
         {
             GameManager.isPaused = !GameManager.isPaused;
-            Debug.Log("Pressed: " + GameManager.isPaused);
         }
 
         if (shootAction.WasPressedThisFrame() && fireTimer <= 0 && !spell)
@@ -105,6 +104,8 @@ public class PlayerControl : MonoBehaviour
             Ranged b1Data = bullet1.GetComponent<Ranged>();
 
             b1Data.damage = rangedDamage;
+
+            b1Data.shooter = gameObject.tag;
 
             fireTimer = fireRate;
         }
@@ -116,7 +117,8 @@ public class PlayerControl : MonoBehaviour
             Ranged b1Data = bullet1.GetComponent<Ranged>();
 
             b1Data.damage = rangedDamage;
-
+            
+            b1Data.shooter = gameObject.tag;
 
             fireTimer = fireRate;
 

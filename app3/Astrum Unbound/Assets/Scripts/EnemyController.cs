@@ -64,6 +64,10 @@ public class EnemyController : MonoBehaviour
         {
             distance = Vector2.Distance(rb.position, player.transform.position);
         }
+        else
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
     }
 
     void FixedUpdate()
@@ -94,7 +98,9 @@ public class EnemyController : MonoBehaviour
             GameObject bullet1 = Instantiate(bullet, gameObject.transform.position, gameObject.transform.rotation);
 
             Ranged b1Data = bullet1.GetComponent<Ranged>();
-
+            
+            b1Data.shooter = gameObject.tag;
+            
             b1Data.damage = damage;
         }
 

@@ -433,7 +433,6 @@ MonoBehaviour:
   enemyText: {fileID: 1682001292}
   instructions: {fileID: 1608427848}
   DeathScreen: {fileID: 1681453831}
-  isStart: 1
 --- !u!1 &223578704
 GameObject:
   m_ObjectHideFlags: 0
@@ -15572,12 +15571,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1103119860}
   m_CullTransparentMesh: 1
---- !u!4 &1116087379 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2250456932233280703, guid: 2e75a7f460aaadd4a82f94db1d08a321,
-    type: 3}
-  m_PrefabInstance: {fileID: 1607494586536166327}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1223814786
 GameObject:
   m_ObjectHideFlags: 0
@@ -22043,11 +22036,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 824139001736811331, guid: 2e75a7f460aaadd4a82f94db1d08a321,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2825733160945955194, guid: 2e75a7f460aaadd4a82f94db1d08a321,
         type: 3}
       propertyPath: m_Name
@@ -22102,27 +22090,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6878851187930495248, guid: 2e75a7f460aaadd4a82f94db1d08a321,
-        type: 3}
-      propertyPath: range
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6878851187930495248, guid: 2e75a7f460aaadd4a82f94db1d08a321,
-        type: 3}
-      propertyPath: bullet
-      value: 
-      objectReference: {fileID: 2538929406024377485, guid: 2a0b691ae391daf468e1b9fabcd74e22,
-        type: 3}
-    - target: {fileID: 6878851187930495248, guid: 2e75a7f460aaadd4a82f94db1d08a321,
-        type: 3}
-      propertyPath: shooter
-      value: 
-      objectReference: {fileID: 1116087379}
-    - target: {fileID: 6878851187930495248, guid: 2e75a7f460aaadd4a82f94db1d08a321,
-        type: 3}
-      propertyPath: maxHealth
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22191,11 +22158,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6908406890203907970, guid: 4ca9614d92a139042a6be2f170601172,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
