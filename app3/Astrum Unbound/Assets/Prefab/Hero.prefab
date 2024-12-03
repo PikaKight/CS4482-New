@@ -460,7 +460,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   maxHealth: 15
-  timeInvincible: 0.5
+  timeInvincible: 0.25
   lives: 3
   maxMana: 100
   spellCost: 5

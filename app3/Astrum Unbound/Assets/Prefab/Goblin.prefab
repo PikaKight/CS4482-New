@@ -122,8 +122,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.020112783, y: -0.07459535}
-  m_Size: {x: 0.39785057, y: 0.3685395}
+  m_Offset: {x: 0.024497133, y: -0.06253892}
+  m_Size: {x: 0.46799922, y: 0.39265513}
   m_Direction: 1
 --- !u!50 &7385777832889316555
 Rigidbody2D:
@@ -172,6 +172,7 @@ MonoBehaviour:
   stopDistance: 0.75
   range: 0
   bullet: {fileID: 0}
+  fireRange: 10
   firingRate: 0.5
   maxHealth: 15
 --- !u!95 &2891745966014154305
