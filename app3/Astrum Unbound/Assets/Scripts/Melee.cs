@@ -11,6 +11,7 @@ public class Melee : Collidable
     public InputAction attackAction;
     public Animator attackAnimation;
 
+    public bool isEnemy = false;
 
     float cooldown = 0.01f;
     float lastSwing;
@@ -20,7 +21,13 @@ public class Melee : Collidable
     protected override void Start()
     {
         base.Start();
-        attackAction.Enable();
+
+        if (!isEnemy)
+        {
+            attackAction.Enable();
+        }
+
+        
         lastSwing = 0.0f;
     }
 
@@ -30,10 +37,11 @@ public class Melee : Collidable
         base.Update();
         
 
-        if (attackAction.WasPressedThisFrame() && (Time.time - lastSwing > cooldown) && !isAttack) {
+        if (attackAction.WasPressedThisFrame() && (Time.time - lastSwing > cooldown) && !isAttack && !isEnemy) {
             
             StartAttack();
         }
+
         else
         {
             EndAttack();
@@ -89,8 +97,9 @@ public class Melee : Collidable
 
             EnemyController enemy = coll.GetComponent<EnemyController>();
 
-            if (enemy != null) { 
-                enemy.changeHealth(damagePoint*-1);
+            if (enemy != null)
+            {
+                enemy.changeHealth(damagePoint * -1);
             }
 
         }

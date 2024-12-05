@@ -670,7 +670,7 @@ GameObject:
   - component: {fileID: 80502462240252486}
   - component: {fileID: 5925049080610111211}
   m_Layer: 5
-  m_Name: Quit
+  m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -780,7 +780,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4290502583466408406}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: quitGame
+        m_MethodName: returnMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

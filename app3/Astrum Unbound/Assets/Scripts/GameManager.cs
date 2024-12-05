@@ -10,12 +10,19 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI btnText;
     Color ogColor;
 
+
     public static bool isPaused = false;
     public GameObject menu;
 
     private void Start()
     {
-       if (btnText != null)
+        if (menu != null)
+        {
+            menu.SetActive(false);
+        }
+        
+
+        if (btnText != null)
         {
             ogColor = btnText.color;
         }
@@ -37,6 +44,11 @@ public class GameManager : MonoBehaviour
                 menu.SetActive(false);
                 Time.timeScale = 1.0f;
 
+            }
+           
+            else
+            {
+                menu.SetActive(false);
             }
         }
     }
@@ -96,28 +108,30 @@ public class GameManager : MonoBehaviour
 
         timer.time = 0.0f;
 
-        GameManager.isPaused = false;
+        isPaused = false;
 
         SceneManager.LoadScene("Menu");
     }
 
     public static void resumeGame()
     {
-        GameManager.isPaused = false;
+        isPaused = false;
+
+        Time.timeScale = 1.0f;
 
         if (LevelManager.isDead)
         {
-            LevelManager.isRespawn = true;
-            LevelManager.isDead = false;
+                Time.timeScale = 1.0f;
+                LevelManager.isRespawn = true;
+                LevelManager.isDead = false;
         }
+
     }
 
     public static void restartGame()
     {
-        Time.timeScale *= 1.0f;
         timer.time = 0.0f;
-
-        GameManager.isPaused = false;
+        isPaused=false;
 
         SceneManager.LoadScene("Main");
     }

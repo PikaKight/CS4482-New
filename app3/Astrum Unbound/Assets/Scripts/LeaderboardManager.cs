@@ -67,6 +67,7 @@ public class LeaderboardManager : MonoBehaviour
         {
             string name = PlayerPrefs.GetString($"Leaderboard_Name_{i}", "Unknown");
             float score = PlayerPrefs.GetFloat($"Leaderboard_Score_{i}", 0.0f);
+
             entries.Add(new LeaderboardEntry(name, score));
         }
     }
@@ -81,6 +82,7 @@ public class LeaderboardManager : MonoBehaviour
         foreach (var entry in entries)
         {
             GameObject playerEntry = Instantiate(leaderboard, leaderboardContainer);
+
             playerEntry.GetComponentInChildren<TextMeshProUGUI>().text = $"{entry.playerName}: {entry.score}";
         }
     }

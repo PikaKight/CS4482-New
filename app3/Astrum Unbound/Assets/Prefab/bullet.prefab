@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5731587183212402291}
   m_Layer: 0
   m_Name: bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,5 +179,4 @@ MonoBehaviour:
   damage: 0
   speed: 10
   lifeTime: 3
-  angle: 0
   shooter: 

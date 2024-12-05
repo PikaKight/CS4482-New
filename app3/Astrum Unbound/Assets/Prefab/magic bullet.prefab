@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9120817340968826467}
   m_Layer: 0
   m_Name: magic bullet
-  m_TagString: Untagged
+  m_TagString: Magic Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -9211657020794476399, guid: f42176bbc0b84b54e83c161abc6eb071,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.44968545, g: 0.93045413, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -179,3 +179,4 @@ MonoBehaviour:
   damage: 0
   speed: 10
   lifeTime: 3
+  shooter: 

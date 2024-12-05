@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
-using UnityEditor.UI;
 using TMPro;
 
 public class EnemyController : MonoBehaviour
@@ -19,9 +17,12 @@ public class EnemyController : MonoBehaviour
 
     public bool range;
     public GameObject bullet;
+    public int rangeDamage = 2;
     public float fireRange = 10f;
     public float firingRate = 0.5f;
     float firingTimer;
+    public Transform firingPlace;
+
 
     public int maxHealth;
     float currentHealth;
@@ -93,15 +94,17 @@ public class EnemyController : MonoBehaviour
             rb.velocity = direction * speed;
         }
         
-        else if (distance <= fireRange && distance > detectionRange)
+        else if (distance <= fireRange && distance > detectionRange && firingTimer <= 0)
         {
-            GameObject bullet1 = Instantiate(bullet, gameObject.transform.position, gameObject.transform.rotation);
+            GameObject bullet1 = Instantiate(bullet, firingPlace.transform.position, firingPlace.transform.rotation);
 
             Ranged b1Data = bullet1.GetComponent<Ranged>();
             
             b1Data.shooter = gameObject.tag;
             
-            b1Data.damage = damage;
+            b1Data.damage = rangeDamage;
+
+            firingTimer = firingRate;
         }
 
         else
@@ -109,7 +112,7 @@ public class EnemyController : MonoBehaviour
             enemyAnimation.SetTrigger("Idle");
         }
 
-
+        firingTimer -= Time.deltaTime;
 
     }
 
@@ -122,13 +125,13 @@ public class EnemyController : MonoBehaviour
 
 
     void OnCollisionEnter2D(Collision2D other)
-    {
+    {       
         PlayerControl playerCol = other.gameObject.GetComponent<PlayerControl>();
 
         if (playerCol != null) {
             enemyAnimation.SetTrigger("Attack");
             enemyAnimation.SetBool("isAttack", true);
-            playerCol.changeHealth(damage*-1);
+            playerCol.changeHealth((damage*-1) + playerCol.meleeResistance);
         }
 
         enemyAnimation.SetBool("isAttack", false);

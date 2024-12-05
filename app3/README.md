@@ -2,15 +2,71 @@
 
 The Game will be a top-down game with the at least 3 levels. The game's focus is for the player to kill enemies and complete puzzles to advance. The player will also get better weapons.
 
+## Notes
+
+- Removed save game as it was no longer a feature that fit how the game's design
+
+- Added Game Audio
+
+  - BGM
+
+- Any new features are bolded in [Requirements](#requirements)
+
+## Assets
+
+- [Monsters_Creatures_Fantasy](https://assetstore.unity.com/packages/2d/characters/monsters-creatures-fantasy-167949)
+
+  - Used for the Enemy sprites
+
+- [Evil Wizard 2](https://assetstore.unity.com/packages/2d/characters/evil-wizard-2-284501)
+
+  - Used for the Mage Class sprite
+
+- [Pixel Art Top Down - Basic](https://assetstore.unity.com/packages/2d/environments/pixel-art-top-down-basic-187605)
+
+  - Used for tilemap, statue and sign game object
+
+- [Pixel Adventure 1](https://assetstore.unity.com/packages/2d/characters/pixel-adventure-1-155360)
+
+  - Used for spikes, bullets and fruits (HP and MP items)
+
+- [Hero Knight - Pixel Art](https://assetstore.unity.com/packages/2d/characters/hero-knight-pixel-art-165188)
+
+  - Used for the Hero/Warrior class sprite
+
+- [Fantasy Skybox FREE](https://assetstore.unity.com/packages/2d/textures-materials/sky/fantasy-skybox-free-18353)
+
+  - Used for Title and Leaderboard Background
+
+## Music/Audio
+
+All music/Audio is from the YouTube Studio Audio Library
+
+- Keys To Unravel
+
+  - Main Menu, Character Select and Leaderboard BGM
+
+- California King
+
+  - Level 1 and GameEnd BGM
+
+- Between The Spaces
+
+  - Puzzle Room BGM
+
+- Moving In The Shadows
+
+  - Boss Room BGM
+
 ## Requirements
 
-- [ ] Player
+- [x] Player
 
-  - [x] Has 3 lives
+  - [x] **Has 3 lives**
 
-    - [ ] Game Over after losing all lives
+    - [x] Game Over after losing all lives
 
-  - [x] Character Selection
+  - [x] **Character Selection**
 
     - [x] 2+ Different Characters (just sprite difference)
     - [x] Character Selection Menu
@@ -28,14 +84,14 @@ The Game will be a top-down game with the at least 3 levels. The game's focus is
     - [x] Doesn't pass through wall, floor, obstacle
     - [x] Losses health and gets knocked back when touching an enemy
 
-- [x] Item
+- [x] **Item**
 
   These items will help the user to complete the level
 
   - [x] HP
   - [x] MP
 
-- [ ] Player Class
+- [x] **Player Class**
 
   Upgrading the character select to have different classes
 
@@ -46,6 +102,8 @@ The Game will be a top-down game with the at least 3 levels. The game's focus is
     - [x] Deal more close range damage
     - [x] Deal less long range damage
 
+    - [x] Increase close range resistance
+
   - [x] Mage
 
     - [x] Staff
@@ -53,24 +111,50 @@ The Game will be a top-down game with the at least 3 levels. The game's focus is
     - [x] Deal less close range damage
     - [x] Deal more long range damage
 
+    - [x] Increase long range resistance
+
+    - [x] Magic Bullet Destroys normal bullets
+
 - [x] Top-Down Game
 
   - [x] Game Camera should follow the player
 
-- [ ] Levels
+- [x] Levels
 
-  - [ ] 2+ Levels
+  - [x] 2+ Levels
   - [x] Must have start and end points
   - [x] Next Level unlocks after all enemies are killed
-  - [ ] At least 1 environmental hazard that injures
+  - [x] At least 1 environmental hazard that injures
 
-- [ ] UI
+  - [x] Level 1 - simple combat
+
+    - [x] 3+ enemies
+    - [x] boss
+    - [x] restricted areas
+    - [x] move to next level
+    - [x] Increase health and mana
+
+  - [x] **Level 2 - puzzle**
+
+    - [x] Simon says
+
+    - [x] Gives a shield with 10 health
+
+  - [x] **Level 3 - Final Boss**
+
+    - [x] Boss
+
+      - [x] Increased Damage
+
+    - [x] 30 Health
+
+- [x] UI
 
   - [x] Health Bar
-  - [x] Life
+  - [x] **Life**
   - [x] Time
-  - [x] Number of Enemies
-  - [x] Initial Instruction
+  - [x] **Number of Enemies**
+  - [x] **Initial Instruction**
 
     - Probably some kind of dialog buble
 
@@ -95,6 +179,8 @@ The Game will be a top-down game with the at least 3 levels. The game's focus is
   - [x] Melee
   - [x] Range
 
+    - [x] Bullets don't interact with each other unless it is magic bullet
+
 - [x] Enemy
 
   - [x] 2 Type of Enemies
@@ -103,24 +189,18 @@ The Game will be a top-down game with the at least 3 levels. The game's focus is
     - [x] Different Health
     - [x] Different Damage
 
-  - [x] Should go after player when they are close
+  - [x] **Should go after player when they are close**
 
-- [ ] Save Game Progress
+- [x] **Game Over**
 
-  - [ ] Save Game
-  - [ ] Load Game
+  - [x] After dying 3 times
 
-- [ ] Game Over
+  - [x] Game Over Screen
 
-  - [ ] After dying 3 times
+    - [x] Restart
+    - [x] Main Menu
 
-  - [ ] Game Over Screen
-
-    - [ ] Start from beginning
-    - [ ] Main Menu
-    - [ ] Quit
-
-- [x] Death Screen
+- [x] **Death Screen**
 
   - [x] You Died Screen
 
@@ -136,3 +216,7 @@ The Game will be a top-down game with the at least 3 levels. The game's focus is
 
   - [x] Score based on Time
   - [x] Save score to leaderboard
+
+- [x] Audio
+
+  - [x] BGM

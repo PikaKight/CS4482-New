@@ -14,12 +14,14 @@ public class PlayerControl : MonoBehaviour
     public float speed;
     public InputAction moveAction;
     public InputAction pauseAction;
-    public int maxHealth;
+    public float maxHealth;
     public float timeInvincible;
     public int lives = 3;
+
+    public int meleeResistance = 1;
+    public int rangeResistance = 1;
     
-    
-    public int maxMana = 100;
+    public float maxMana = 100f;
     public int spellCost = 5;
     public bool spell = false;
 
@@ -34,11 +36,15 @@ public class PlayerControl : MonoBehaviour
     public TextMeshProUGUI healthStatus;
     public TextMeshProUGUI manaStatus;
 
+    public GameObject shield;
+    public TextMeshProUGUI shieldStatus;
+
     Rigidbody2D rb;
     Vector2 move;
     bool isInvincible;
     float damageCooldown;
     bool isFacingRight = true;
+
     public float health { get { return currentHealth; } }
     public float mana { get { return currentMana; } }
 
@@ -64,6 +70,15 @@ public class PlayerControl : MonoBehaviour
 
         orgX = gameObject.transform.localPosition.x;
         orgY = gameObject.transform.localPosition.y;
+
+        int isShield = PlayerPrefs.GetInt("Shield", 0);
+
+        if (isShield == 1)
+        {
+            shield.SetActive(true);
+            shield.GetComponent<Shield>().shieldStatus = shieldStatus;
+        }
+
     }
 
     // Update is called once per frame
@@ -174,7 +189,7 @@ public class PlayerControl : MonoBehaviour
         transform.localScale = scale;
     }
 
-    public void changeHealth(int health)
+    public void changeHealth(float health)
     {
         if (health < 0)
         {
@@ -187,24 +202,22 @@ public class PlayerControl : MonoBehaviour
             damageCooldown = timeInvincible;
         }
 
+        Shield shield = gameObject.GetComponentInChildren<Shield>();
+
+        if (shield != null && shield.isActiveAndEnabled)
+        {
+            shield.changeDurability(health);
+
+            return;
+        }
+
         currentHealth = Mathf.Clamp(currentHealth + health, 0, maxHealth);
         healthStatus.text = $"Health: {currentHealth} HP";
     }
 
-    public void changeMana(int manaGain)
+    public void changeMana(float manaGain)
     {
-
         currentMana = Mathf.Clamp(currentMana + manaGain, 0, maxMana);
         manaStatus.text = $"Mana: {currentMana} MP";
-    }
-
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "Gem")
-        {
-            LevelManager.isKey = true;
-
-            other.gameObject.SetActive(false);
-        }
     }
 }

@@ -7,14 +7,19 @@ TagManager:
   - Fighter
   - Enemy
   - Gem
+  - Wall
+  - Bullet
+  - Magic Bullet
+  - Puzzle
+  - Shield
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Shield
   - 
   - 
   - 

@@ -7,7 +7,7 @@ using TMPro;
 public class LevelManager : MonoBehaviour
 {
     public GameObject door;
-    public GameObject spike;
+    public GameObject[] spikes;
     public GameObject Gem;
 
     public GameObject defaultPlayer;
@@ -27,16 +27,18 @@ public class LevelManager : MonoBehaviour
     public Vector2[] E3Pos;
 
     int numEnemies;
-    public static List<GameObject> enemies = new List<GameObject>();
+    public static List<GameObject> enemies;
 
     public CinemachineVirtualCamera virtualCamera;
     public TextMeshProUGUI health;
     public TextMeshProUGUI lifeText;
     public TextMeshProUGUI manaText;
     public TextMeshProUGUI enemyText;
+    public TextMeshProUGUI bossText;
 
     public GameObject instructions;
     public GameObject DeathScreen;
+    public GameObject gameOverScreen;
 
     PlayerControl playerControl;
 
@@ -46,12 +48,15 @@ public class LevelManager : MonoBehaviour
     public static bool isDead = false;
     public static bool isDone = false;
     public static bool isKey = false;
+    bool isOver = false; 
 
-
+    int currentEnemies;
     int playerLives;
     // Start is called before the first frame update
     void Start()
     {
+        isDead = false;
+
         Time.timeScale = 0.0f;
 
         if (CharacterSelection.currentPlayer != null)
@@ -60,12 +65,21 @@ public class LevelManager : MonoBehaviour
         }
 
         DeathScreen.SetActive(false);
+        gameOverScreen.SetActive(false);
+
+        enemies = new List<GameObject>();
 
         spawnPlayer();
 
         playerLives = playerControl.lives;
 
         spawnEnemies();
+
+        currentEnemies = enemies.Count;
+
+        enemyText.text = $"Enemies: {currentEnemies}";
+
+        bossText.text = $"Boss: 1";
     }
 
     // Update is called once per frame
@@ -77,7 +91,15 @@ public class LevelManager : MonoBehaviour
             updateLives();
         }
 
-        if (isDead)
+        if (playerLives <= 0)
+        {
+            isOver = true;
+
+            Time.timeScale = 0.0f;
+            gameOverScreen.SetActive(true);
+        }
+
+        if (isDead && !isOver)
         {
             Time.timeScale = 0.0f;
             DeathScreen.SetActive(true);
@@ -96,9 +118,14 @@ public class LevelManager : MonoBehaviour
             enemyText.text = $"Enemies: {numEnemies}";
         }
 
-        if (boss.GetComponent<EnemyController>().health <= 0 && !isDone)
+        if (boss == null && !isDone)
         {
-            Instantiate(Gem, Gem.transform.position, Quaternion.identity);
+            bossText.text = $"Boss: 0";
+
+            GameObject gem = Instantiate(Gem, Gem.transform.position, Quaternion.identity);
+            gem.tag = "Gem";
+
+            isDone = true;
         }
 
         if (isKey)
@@ -106,15 +133,26 @@ public class LevelManager : MonoBehaviour
             door.SetActive(false);
         }
 
-        if (enemies.Count > 0)
+        if (currentEnemies <= 0)
         {
+            foreach (GameObject spike in spikes)
+            {
+                spike.SetActive(false);
+            }
+           
+        }
 
+        if (currentEnemies > enemies.Count)
+        {
+            currentEnemies = enemies.Count;
+            enemyText.text = $"Enemies: {currentEnemies}";
         }
     }
 
     void spawnPlayer()
     {
-        
+        PlayerPrefs.SetInt("Shield", 0);
+
         GameObject player = Instantiate(defaultPlayer, defaultPlayer.transform.position, Quaternion.identity);
 
         playerControl = player.GetComponent<PlayerControl>();

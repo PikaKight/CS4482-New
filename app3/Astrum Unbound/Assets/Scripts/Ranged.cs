@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Ranged : Collidable
@@ -29,7 +27,7 @@ public class Ranged : Collidable
 
     protected override void OnCollide(Collider2D coll)
     {
-        if (coll.tag != shooter)
+        if (coll.tag != shooter && coll.tag != "Bullet")
         {
             switch (coll.tag)
             {
@@ -47,11 +45,16 @@ public class Ranged : Collidable
                     PlayerControl playerControl = coll.GetComponent<PlayerControl>();
                     if (playerControl != null)
                     {
-                        playerControl.changeHealth(damage * -1);
+                        Debug.Log((damage * -1) + playerControl.rangeResistance);
+                        playerControl.changeHealth((damage * -1) + playerControl.rangeResistance);
                         Destroy(gameObject);
                     }
                     break;
 
+                case "Magic Bullet":
+                    Destroy(gameObject);
+                    break;
+                
                 default:
                     return;
             }

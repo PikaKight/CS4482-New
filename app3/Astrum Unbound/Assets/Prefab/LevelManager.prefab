@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2138756977794431020
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1038304315783357160}
+  - component: {fileID: 5288445697051166223}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1038304315783357160
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138756977794431020}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1056.0447, y: 477.71954, z: -5.877712}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5288445697051166223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138756977794431020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64efe0990e3a2244bafe65203a1ff7b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 0}
+  spike: {fileID: 0}
+  Gem: {fileID: 2123725025351544810, guid: 2b898ef0af95d694aa2e5284d337ab5b, type: 3}
+  defaultPlayer: {fileID: 7585340416849526965, guid: 90b737d5b03bf344fb8498e81bb351ae,
+    type: 3}
+  enemy1: {fileID: 4627725377086947130, guid: cb3f1d7d3eb7781478c03df0eb646729, type: 3}
+  enemy2: {fileID: 0}
+  enemy3: {fileID: 0}
+  boss: {fileID: 0}
+  numE1: 3
+  numE2: 2
+  numE3: 0
+  E1Pos:
+  - {x: 5.65, y: -3.46}
+  - {x: 13.8, y: 0.49}
+  - {x: 18.02, y: 6.46}
+  E2Pos: []
+  E3Pos: []
+  virtualCamera: {fileID: 0}
+  health: {fileID: 0}
+  lifeText: {fileID: 0}
+  manaText: {fileID: 0}
+  enemyText: {fileID: 0}
+  bossText: {fileID: 0}
+  instructions: {fileID: 0}
+  DeathScreen: {fileID: 0}
