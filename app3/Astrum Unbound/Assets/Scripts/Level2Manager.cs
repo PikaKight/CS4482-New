@@ -77,8 +77,16 @@ public class Level2Manager : MonoBehaviour
         playerControl.healthStatus = health;
         playerControl.manaStatus = manaText;
 
-        playerControl.maxHealth = playerHealth;
-        playerControl.maxMana = playerMana;
+        if (playerHealth > playerControl.maxHealth)
+        {
+            playerControl.maxHealth = playerHealth;
+        }
+
+        if(playerMana > playerControl.maxMana)
+        {
+            playerControl.maxMana = playerMana;
+        }
+        
 
         playerControl.changeHealth((playerHealth - playerControl.health));
         playerControl.changeMana((playerMana - playerControl.mana));

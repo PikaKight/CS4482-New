@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         audioSource.loop = isLoop;
+        PlaySound();
     }
 
     public void PlaySound()

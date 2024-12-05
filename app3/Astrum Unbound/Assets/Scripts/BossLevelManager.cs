@@ -22,11 +22,18 @@ public class BossLevelManager : MonoBehaviour
     public TextMeshProUGUI shieldStatus;
 
     public GameObject DeathScreen;
+    public GameObject gameOverScreen;
 
     PlayerControl playerControl;
 
     public static bool isDone = false;
     public static bool isStarted = false;
+
+    public static bool isRespawn = false;
+    public static bool isDead = false;
+
+    bool isOver = false;
+
 
     int playerLives;
     // Start is called before the first frame update
@@ -58,6 +65,20 @@ public class BossLevelManager : MonoBehaviour
             updateLives();
         }
 
+        if (playerLives <= 0)
+        {
+            isOver = true;
+
+            Time.timeScale = 0.0f;
+            gameOverScreen.SetActive(true);
+        }
+
+        if (isDead && !isOver)
+        {
+            Time.timeScale = 0.0f;
+            DeathScreen.SetActive(true);
+        }
+
     }
 
     void spawnPlayer()
@@ -75,8 +96,8 @@ public class BossLevelManager : MonoBehaviour
         playerControl.manaStatus = manaText;
         playerControl.shieldStatus = shieldStatus;
 
-        playerControl.changeHealth((int)(playerHealth - playerControl.health));
-        playerControl.changeMana((int)(playerMana - playerControl.mana));
+        playerControl.changeHealth((playerHealth - playerControl.health));
+        playerControl.changeMana((playerMana - playerControl.mana));
         playerControl.lives = playerLives;
 
         virtualCamera.Follow = player.transform;
