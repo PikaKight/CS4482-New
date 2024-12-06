@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78c50dcbd38e967479b58dc591021508, type: 3}
+  m_Name: LSInstruc
+  m_EditorClassIdentifier: 
+  key: LSInstruc
+  en: Select The Game Language by clicking on the buttons
+  fr: "S\xE9lectionnez la langue du jeu en cliquant sur les boutons"
+  zh: "\u9EDE\u64CA\u6309\u9215\u9078\u64C7\u904A\u6232\u8A9E\u8A00"
